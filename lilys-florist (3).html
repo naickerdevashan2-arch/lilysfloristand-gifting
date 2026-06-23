@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lily's Florist &amp; Gifting | Tongaat &amp; Phoenix, KZN</title>
+<meta name="description" content="Lily's Florist and Gifting - Fresh bridal bouquets, wedding garlands, luxury arrangements and custom gifting in Tongaat and Phoenix, KwaZulu-Natal.">
+<meta name="keywords" content="florist Tongaat, florist Phoenix, wedding flowers KwaZulu-Natal, bridal bouquets South Africa, Indian wedding garlands">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --green:#1B4332;--green2:#2D6A4F;--green3:#40916C;
+  --greenl:#D8F3DC;--greenmist:#F0FAF2;
+  --white:#FFFFFF;--offwhite:#FAFAFA;--warm:#F7F4F0;
+  --gold:#B8860B;--goldl:#D4A843;
+  --text:#111827;--textm:#374151;--textl:#6B7280;--border:#E5E7EB;
+}
+body{background:var(--white);color:var(--text);font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif}
+a{text-decoration:none}
+img{display:block;max-width:100%}
+
+/* NAV */
+.nav{position:fixed;top:0;width:100%;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+.nav.solid{background:#fff;box-shadow:0 1px 0 var(--border);padding:.75rem 2rem}
+.nav-logo{display:flex;align-items:center;gap:.6rem;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:#fff;transition:color .3s}
+.nav.solid .nav-logo{color:var(--green)}
+.nav-badge{width:36px;height:36px;border-radius:50%;background:var(--green);border:2px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.nav.solid .nav-badge{border-color:var(--greenl);background:var(--green2)}
+.nav-logo i{font-style:italic;font-weight:400;font-size:1.2rem}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-size:.75rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8);transition:color .3s;position:relative;padding-bottom:2px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:rgba(255,255,255,.6);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.nav.solid .nav-links a{color:var(--textl)}
+.nav.solid .nav-links a:hover{color:var(--green)}
+.nav.solid .nav-links a::after{background:var(--green3)}
+.nav-wa{background:var(--green);color:#fff;padding:.5rem 1.2rem;border-radius:6px;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:all .3s;border:1.5px solid var(--green);white-space:nowrap}
+.nav-wa:hover{background:var(--green2);border-color:var(--green2)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:3px}
+.hbg span{width:22px;height:1.5px;background:#fff;display:block;transition:all .3s}
+.nav.solid .hbg span{background:var(--green)}
+
+/* MOBILE MENU */
+.mob{position:fixed;inset:0;z-index:999;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .35s}
+.mob.on{opacity:1;pointer-events:all}
+.mob a{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:rgba(255,255,255,.8);transition:color .3s}
+.mob a:hover{color:#fff}
+.mob .mob-wa{background:#25D366;color:#fff;font-family:'Inter';font-size:.85rem;font-weight:500;padding:.75rem 2rem;border-radius:6px;margin-top:.5rem;letter-spacing:.06em}
+
+/* HERO */
+.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.5) 0%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.6) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:1.5rem;max-width:780px}
+.hero-eyebrow{display:inline-block;background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.9);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:.4rem 1.2rem;border-radius:2px;margin-bottom:1.6rem;animation:fadeUp .9s .1s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero h1{font-size:clamp(2.8rem,7vw,5.5rem);font-weight:400;color:#fff;line-height:1.1;margin-bottom:1.2rem;animation:fadeUp .9s .25s both}
+.hero h1 em{font-style:italic;color:#D4A843}
+.hero-sub{font-size:clamp(.9rem,2vw,1.1rem);color:rgba(255,255,255,.7);line-height:1.8;max-width:500px;margin:0 auto 2.4rem;animation:fadeUp .9s .4s both;font-weight:300}
+.hero-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .9s .55s both}
+.btn-solid{background:#fff;color:var(--green);padding:.85rem 2rem;border-radius:6px;font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.btn-solid:hover{background:var(--greenl);transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff;padding:.85rem 2rem;border-radius:6px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s}
+.btn-outline:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.8)}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;animation:fadeUp .9s .8s both}
+.scroll-bar{width:1px;height:44px;background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent);animation:sp 2s ease-in-out infinite}
+@keyframes sp{0%,100%{transform:scaleY(1);opacity:.5}50%{transform:scaleY(.5);opacity:1}}
+.scroll-txt{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.rv.on{opacity:1;transform:translateY(0)}
+.rvl{opacity:0;transform:translateX(-22px);transition:opacity .7s,transform .7s}
+.rvl.on{opacity:1;transform:translateX(0)}
+.rvr{opacity:0;transform:translateX(22px);transition:opacity .7s,transform .7s}
+.rvr.on{opacity:1;transform:translateX(0)}
+
+/* LABEL / TITLE */
+.label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green3);font-weight:500;display:flex;align-items:center;gap:.6rem;justify-content:center;margin-bottom:.5rem}
+.label::before,.label::after{content:'';width:28px;height:1px;background:var(--greenl)}
+.title{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:400;color:var(--text);line-height:1.15}
+.title em{font-style:italic;color:var(--green2)}
+
+/* ABOUT */
+.about{padding:7rem 1.5rem;background:var(--white)}
+.about-wrap{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-img-wrap{position:relative}
+.about-frame{border-radius:2px 60px 2px 60px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 70px rgba(0,0,0,.12)}
+.about-frame img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.about-frame:hover img{transform:scale(1.03)}
+.about-chip{position:absolute;bottom:-1.2rem;right:-1.2rem;background:var(--green);color:#fff;border-radius:12px;padding:1.1rem 1.4rem;text-align:center;box-shadow:0 16px 40px rgba(27,67,50,.3)}
+.about-chip .n{font-family:'Cormorant Garamond';font-size:2.4rem;font-weight:400;color:var(--goldl);line-height:1}
+.about-chip .l{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:.1rem}
+.about-text{padding:.5rem 0}
+.about-text .label{justify-content:flex-start}
+.about-text .label::before{display:none}
+.about-text .title{text-align:left;margin-bottom:1.2rem}
+.about-text p{color:var(--textm);line-height:1.9;margin-bottom:1rem;font-size:.95rem}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.6rem}
+.about-pill{background:var(--greenmist);border:1px solid var(--greenl);border-radius:10px;padding:.8rem .9rem;display:flex;align-items:flex-start;gap:.65rem}
+.about-pill-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+.about-pill strong{font-size:.82rem;font-weight:500;color:var(--text);display:block;margin-bottom:.1rem}
+.about-pill span{font-size:.75rem;color:var(--textl);line-height:1.5}
+.btn-green{background:var(--green);color:#fff;padding:.85rem 2rem;border-radius:6px;font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s;margin-top:1.8rem;border:1.5px solid var(--green)}
+.btn-green:hover{background:var(--green2);border-color:var(--green2);transform:translateY(-1px)}
+
+/* PACKAGE */
+.package{padding:1.5rem 1.5rem 6rem;background:var(--offwhite)}
+.pkg-inner{max-width:1080px;margin:0 auto;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 20px 60px rgba(0,0,0,.1)}
+.pkg-content{background:var(--green);padding:3rem;display:flex;flex-direction:column;justify-content:center}
+.pkg-eyebrow{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--goldl);margin-bottom:.6rem;font-weight:500}
+.pkg-title{font-family:'Cormorant Garamond';font-size:2.2rem;font-weight:400;color:#fff;line-height:1.2;margin-bottom:.6rem}
+.pkg-price{font-family:'Cormorant Garamond';font-size:3rem;font-weight:400;color:var(--goldl);line-height:1;margin-bottom:.4rem}
+.pkg-price span{font-family:'Inter';font-size:.9rem;color:rgba(255,255,255,.45);font-weight:300}
+.pkg-note{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.65;margin-bottom:1.4rem}
+.pkg-list{list-style:none;margin-bottom:1.8rem}
+.pkg-list li{font-size:.85rem;color:rgba(255,255,255,.75);padding:.38rem 0;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:.55rem}
+.pkg-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--goldl);flex-shrink:0}
+.btn-gold{background:var(--goldl);color:#fff;padding:.85rem 2rem;border-radius:6px;font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s}
+.btn-gold:hover{background:var(--gold);transform:translateY(-1px)}
+.pkg-img-side{overflow:hidden;min-height:420px;position:relative}
+.pkg-img-side img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+
+/* SERVICES */
+.services{padding:6rem 1.5rem;background:var(--white)}
+.sec-head{text-align:center;margin-bottom:3rem}
+.svc-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.svc-card{border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:all .35s;cursor:pointer;background:#fff}
+.svc-card:hover{transform:translateY(-8px);box-shadow:0 24px 50px rgba(0,0,0,.1);border-color:transparent}
+.svc-img-wrap{height:220px;overflow:hidden;position:relative}
+.svc-img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.svc-card:hover .svc-img{transform:scale(1.07)}
+.svc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 55%)}
+.svc-body{padding:1.35rem}
+.svc-tag-top{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green3);font-weight:500;margin-bottom:.35rem}
+.svc-body h3{font-family:'Cormorant Garamond';font-size:1.3rem;font-weight:500;color:var(--text);margin-bottom:.38rem;line-height:1.2}
+.svc-body p{font-size:.82rem;color:var(--textl);line-height:1.7}
+
+/* GALLERY */
+.gallery{padding:6rem 1.5rem;background:var(--offwhite)}
+.gal-grid{max-width:1160px;margin:2.5rem auto 0;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:8px}
+.gi{border-radius:10px;overflow:hidden;position:relative;cursor:pointer;background:var(--greenl)}
+.gi:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gi:nth-child(6){grid-column:span 2}
+.gi:nth-child(10){grid-column:span 2}
+.gi img{width:100%;height:100%;object-fit:cover;transition:transform .55s;display:block}
+.gi:hover img{transform:scale(1.07)}
+.gi-ov{position:absolute;inset:0;background:rgba(27,67,50,.6);opacity:0;transition:opacity .35s;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem}
+.gi:hover .gi-ov{opacity:1}
+.gi-label{position:absolute;bottom:0;left:0;right:0;padding:.6rem .8rem;background:linear-gradient(to top,rgba(0,0,0,.65),transparent);color:#fff;font-size:.72rem;letter-spacing:.06em;opacity:0;transition:opacity .35s}
+.gi:hover .gi-label{opacity:1}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.95);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s}
+.lb.on{opacity:1;pointer-events:all}
+.lb img{max-width:90vw;max-height:88vh;border-radius:8px;transform:scale(.92);transition:transform .35s;display:block}
+.lb.on img{transform:scale(1)}
+.lb-close{position:absolute;top:1.2rem;right:1.2rem;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.lb-close:hover{background:var(--green)}
+.lb-cap{position:absolute;bottom:1.5rem;color:rgba(255,255,255,.45);font-size:.75rem;letter-spacing:.1em;text-align:center;left:0;right:0}
+
+/* WHY */
+.why{padding:6rem 1.5rem;background:var(--white)}
+.why-grid{max-width:1080px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.why-card{padding:2rem 1.6rem;border-radius:12px;border:1px solid var(--border);transition:all .35s;background:#fff}
+.why-card:hover{border-color:var(--greenl);box-shadow:0 16px 40px rgba(27,67,50,.08);transform:translateY(-5px)}
+.why-icon{width:52px;height:52px;border-radius:50%;background:var(--greenmist);border:1.5px solid var(--greenl);display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:1rem}
+.why-card h3{font-family:'Cormorant Garamond';font-size:1.2rem;font-weight:500;color:var(--text);margin-bottom:.5rem}
+.why-card p{font-size:.82rem;color:var(--textl);line-height:1.75}
+
+/* RECENT WORK */
+.recent{padding:6rem 1.5rem;background:var(--green)}
+.recent-head{text-align:center;margin-bottom:2.5rem}
+.recent-head .label{color:var(--goldl)}
+.recent-head .label::before,.recent-head .label::after{background:rgba(212,168,67,.3)}
+.recent-head .title{color:#fff}
+.ig-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);gap:4px;border-radius:10px;overflow:hidden}
+.ig-item{aspect-ratio:1;overflow:hidden;cursor:pointer;position:relative;background:var(--green2)}
+.ig-item img{width:100%;height:100%;object-fit:cover;transition:transform .45s;display:block}
+.ig-item:hover img{transform:scale(1.08)}
+.ig-item::after{content:'';position:absolute;inset:0;background:rgba(27,67,50,.55);opacity:0;transition:opacity .3s}
+.ig-item:hover::after{opacity:1}
+.recent-cta{text-align:center;margin-top:2.2rem}
+
+/* REVIEWS */
+.reviews{padding:6rem 1.5rem;background:var(--offwhite)}
+.rv-grid{max-width:1080px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.rv-card{background:#fff;border-radius:12px;padding:1.8rem;border:1px solid var(--border);transition:all .35s}
+.rv-card:hover{box-shadow:0 16px 40px rgba(0,0,0,.07);transform:translateY(-4px);border-color:transparent}
+.rv-stars{color:var(--goldl);font-size:.85rem;letter-spacing:.08em;margin-bottom:.8rem}
+.rv-text{font-family:'Cormorant Garamond';font-size:1.1rem;font-style:italic;color:var(--text);line-height:1.75;margin-bottom:1.2rem;font-weight:400}
+.rv-author{display:flex;align-items:center;gap:.65rem}
+.rv-av{width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.82rem;font-weight:500;flex-shrink:0}
+.rv-name{font-size:.82rem;font-weight:500;color:var(--text)}
+.rv-occ{font-size:.7rem;color:var(--textl);margin-top:.08rem}
+
+/* CTA */
+.cta{padding:8rem 1.5rem;background:var(--warm);text-align:center}
+.cta-inner{max-width:620px;margin:0 auto}
+.cta-inner p{color:var(--textm);font-size:.95rem;line-height:1.85;margin-bottom:2.2rem}
+.cta-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
+.btn-wa{background:#25D366;color:#fff;padding:.9rem 2.1rem;border-radius:6px;font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.55rem;transition:all .3s;box-shadow:0 6px 20px rgba(37,211,102,.3)}
+.btn-wa:hover{background:#1ea854;transform:translateY(-2px)}
+.btn-call{background:#fff;border:1.5px solid var(--border);color:var(--text);padding:.9rem 2.1rem;border-radius:6px;font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.55rem;transition:all .3s}
+.btn-call:hover{border-color:var(--green);color:var(--green);transform:translateY(-1px)}
+.cta-locations{display:flex;justify-content:center;gap:2.5rem;margin-top:3rem;flex-wrap:wrap;align-items:center}
+.cta-loc-name{font-family:'Cormorant Garamond';font-size:1.05rem;color:var(--text);font-weight:500}
+.cta-loc-det{font-size:.72rem;color:var(--textl);margin-top:.12rem}
+.cta-divider{width:1px;height:32px;background:var(--border)}
+
+/* FOOTER */
+footer{background:#0A1F14;padding:5rem 2rem 1.8rem}
+.ft-wrap{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.ft-logo{font-family:'Cormorant Garamond';font-size:1.7rem;font-weight:600;color:#fff;margin-bottom:.2rem}
+.ft-logo em{font-style:italic;font-weight:400}
+.ft-tagline{font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:var(--goldl);margin-bottom:1rem}
+.ft-brand p{font-size:.78rem;color:rgba(255,255,255,.3);line-height:1.85;max-width:260px}
+.ft-socials{display:flex;gap:.6rem;margin-top:1.3rem}
+.ft-soc{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:.82rem;transition:all .3s}
+.ft-soc:hover{background:var(--green2);border-color:var(--green2);color:#fff}
+.ft-col h4{font-family:'Cormorant Garamond';font-size:.95rem;font-weight:500;color:#fff;margin-bottom:1rem}
+.ft-col ul{list-style:none}
+.ft-col ul li{margin-bottom:.5rem}
+.ft-col ul li a{font-size:.78rem;color:rgba(255,255,255,.32);transition:color .3s}
+.ft-col ul li a:hover{color:rgba(255,255,255,.8)}
+.fc-it{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.7rem}
+.fc-ci{color:var(--green3);font-size:.8rem;margin-top:2px;flex-shrink:0}
+.fc-it span,.fc-it a{font-size:.78rem;color:rgba(255,255,255,.32);line-height:1.6;transition:color .3s}
+.fc-it a:hover{color:rgba(255,255,255,.8)}
+.ft-bottom{max-width:1160px;margin:0 auto;padding-top:1.6rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem}
+.ft-bottom p{font-size:.7rem;color:rgba(255,255,255,.18)}
+
+/* FLOATING WA */
+.wa-float{position:fixed;bottom:1.8rem;right:1.8rem;z-index:998;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 6px 20px rgba(37,211,102,.45);transition:transform .3s;animation:waPulse 3s ease-in-out infinite}
+.wa-float:hover{transform:scale(1.1)}
+@keyframes waPulse{0%,100%{box-shadow:0 6px 20px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,.3)}60%{box-shadow:0 6px 20px rgba(37,211,102,.45),0 0 0 12px rgba(37,211,102,0)}}
+.wa-tip{position:absolute;right:calc(100% + 8px);top:50%;transform:translateY(-50%);background:#111;color:#fff;font-size:.68rem;white-space:nowrap;padding:.3rem .8rem;border-radius:4px;opacity:0;pointer-events:none;transition:opacity .25s}
+.wa-float:hover .wa-tip{opacity:1}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .rv-grid{grid-template-columns:repeat(2,1fr)}
+  .gal-grid{grid-template-columns:repeat(3,1fr)}
+  .gi:nth-child(1){grid-column:span 2}
+  .gi:nth-child(6){grid-column:span 1}
+  .gi:nth-child(10){grid-column:span 1}
+  .ft-wrap{grid-template-columns:1fr 1fr}
+  .about-wrap{grid-template-columns:1fr;gap:3rem}
+  .about-chip{right:.8rem;bottom:-.8rem}
+  .ig-grid{grid-template-columns:repeat(4,1fr)}
+  .pkg-inner{grid-template-columns:1fr}
+  .pkg-img-side{min-height:280px}
+}
+@media(max-width:768px){
+  .nav-links,.nav-wa{display:none}
+  .hbg{display:flex}
+  .svc-grid,.why-grid,.rv-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+  .gi:nth-child(1),.gi:nth-child(6),.gi:nth-child(10){grid-column:span 2}
+  .ft-wrap{grid-template-columns:1fr}
+  .ft-bottom{flex-direction:column;text-align:center}
+  .ig-grid{grid-template-columns:repeat(3,1fr)}
+  .about-grid{grid-template-columns:1fr}
+  .cta-divider{display:none}
+  .cta-locations{gap:1.5rem}
+  .about-text{padding:0}
+}
+@media(max-width:480px){
+  .ig-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-btns{flex-direction:column;align-items:center}
+  .pkg-content{padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<div class="lb" id="lb" onclick="if(event.target===this)closeLB()">
+  <button class="lb-close" onclick="closeLB()">&#10005;</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
+
+<div class="mob" id="mob">
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#gallery" onclick="closeMob()">Gallery</a>
+  <a href="#why" onclick="closeMob()">Why Us</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="https://wa.me/27748337586" class="mob-wa">&#128172; WhatsApp Us</a>
+</div>
+
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-badge">&#127807;</div>
+    Lily's&nbsp;<i>Florist</i>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/27748337586" class="nav-wa">Order Now</a>
+  <div class="hbg" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Tongaat &amp; Phoenix &middot; KwaZulu-Natal</div>
+    <h1>Flowers That Speak<br><em>From The Heart</em></h1>
+    <p class="hero-sub">Handcrafted luxury floral arrangements for weddings, ceremonies, birthdays and every moment that deserves to be beautiful.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/27748337586" class="btn-solid">&#128172; Order on WhatsApp</a>
+      <a href="#gallery" class="btn-outline">View Our Work</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-bar"></div><span class="scroll-txt">Scroll</span></div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-wrap">
+    <div class="about-img-wrap rvl">
+      <div class="about-frame"><img id="aboutImg" src="" alt="Lily's Florist arrangement"></div>
+      <div class="about-chip"><div class="n">100%</div><div class="l">Fresh Flowers</div></div>
+    </div>
+    <div class="about-text rvr">
+      <div class="label" style="justify-content:flex-start">Our Story</div>
+      <h2 class="title" style="text-align:left;margin-bottom:1.2rem">Where Every Bloom<br><em>Tells a Story</em></h2>
+      <p>At Lily's Florist &amp; Gifting, we believe flowers are more than decoration &mdash; they're emotion, memory and love made visible. Based in Tongaat &amp; Phoenix, KwaZulu-Natal, we pour our hearts into every arrangement we create.</p>
+      <p>From intimate bridal bouquets to grand Indian wedding garlands, birthday surprises to farewell tributes &mdash; each piece is crafted with care, using only the freshest blooms at prices that never compromise on beauty.</p>
+      <div class="about-grid">
+        <div class="about-pill"><span class="about-pill-icon">&#127807;</span><div><strong>Fresh Daily Blooms</strong><span>Only the finest flowers for every order</span></div></div>
+        <div class="about-pill"><span class="about-pill-icon">&#10024;</span><div><strong>Handcrafted with Love</strong><span>Personal artistry in every arrangement</span></div></div>
+        <div class="about-pill"><span class="about-pill-icon">&#128176;</span><div><strong>Budget-Friendly Luxury</strong><span>Premium quality at honest prices</span></div></div>
+        <div class="about-pill"><span class="about-pill-icon">&#127912;</span><div><strong>Custom Colour Designs</strong><span>Tailored to your theme and vision</span></div></div>
+      </div>
+      <a href="https://wa.me/27748337586" class="btn-green">Chat With Melissa</a>
+    </div>
+  </div>
+</section>
+
+<section class="package">
+  <div class="pkg-inner rv">
+    <div class="pkg-content">
+      <div class="pkg-eyebrow">&#10022; Featured Wedding Package</div>
+      <div class="pkg-title">Christian Wedding<br>Floral Package</div>
+      <div class="pkg-price">R2400 <span>complete package</span></div>
+      <p class="pkg-note">Flowers done in colours of your choice &mdash; everything you need for your beautiful wedding day.</p>
+      <ul class="pkg-list">
+        <li>1 Bride Bouquet</li>
+        <li>4 Bridesmaid Bouquets</li>
+        <li>5 Gentlemen Lapel Flowers (Boutonnieres)</li>
+        <li>1 Flower Girl Basket</li>
+        <li>1 Packet of Rose Petals</li>
+        <li>50 Cashews Sweets or 50 Wedding Beetlenut in Cones</li>
+      </ul>
+      <a href="https://wa.me/27748337586?text=Hi%20Melissa!%20I'm%20interested%20in%20the%20R2400%20Wedding%20Package." class="btn-gold">&#128172; Book This Package</a>
+    </div>
+    <div class="pkg-img-side" id="pkgImg"></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="sec-head rv">
+    <div class="label">What We Create</div>
+    <h2 class="title">Our Floral <em>Services</em></h2>
+  </div>
+  <div class="svc-grid" id="svcGrid"></div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="sec-head rv">
+    <div class="label">Our Portfolio</div>
+    <h2 class="title">Floral <em>Artistry</em></h2>
+    <p style="color:var(--textl);margin-top:.6rem;font-size:.85rem">Real work &middot; Real flowers &middot; Real love</p>
+  </div>
+  <div class="gal-grid" id="galGrid"></div>
+</section>
+
+<section class="why" id="why">
+  <div class="sec-head rv">
+    <div class="label">Why Lily's</div>
+    <h2 class="title">The <em>Lily's</em> Difference</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card rv" style="transition-delay:.06s"><div class="why-icon">&#128176;</div><h3>Budget-Friendly Luxury</h3><p>Premium floral artistry at honest, accessible prices. Beautiful flowers for every budget.</p></div>
+    <div class="why-card rv" style="transition-delay:.12s"><div class="why-icon">&#127807;</div><h3>Freshest Blooms Daily</h3><p>Only the freshest flowers sourced daily so every petal is perfect. No wilted stems ever.</p></div>
+    <div class="why-card rv" style="transition-delay:.18s"><div class="why-icon">&#127912;</div><h3>Custom Colour Matching</h3><p>Your colours, your vision. Every arrangement perfectly matches your wedding theme or event decor.</p></div>
+    <div class="why-card rv" style="transition-delay:.06s"><div class="why-icon">&#128141;</div><h3>Wedding Specialists</h3><p>Bouquets, garlands, lapels and decor &mdash; we handle every floral need of your wedding day.</p></div>
+    <div class="why-card rv" style="transition-delay:.12s"><div class="why-icon">&#129309;</div><h3>Locally Trusted</h3><p>A beloved florist in Tongaat and Phoenix, built on community trust and stunning work.</p></div>
+    <div class="why-card rv" style="transition-delay:.18s"><div class="why-icon">&#128172;</div><h3>Always Available</h3><p>Always a WhatsApp away. Personal consultations, quick responses and care beyond the bouquet.</p></div>
+  </div>
+</section>
+
+<section class="recent">
+  <div class="recent-head rv">
+    <div class="label">Recent Creations</div>
+    <h2 class="title">Our Latest <em>Work</em></h2>
+    <p style="color:rgba(255,255,255,.4);margin-top:.5rem;font-size:.85rem">Fresh arrangements straight from our studio</p>
+  </div>
+  <div class="ig-grid rv" id="igGrid"></div>
+  <div class="recent-cta rv" style="transition-delay:.2s">
+    <a href="https://wa.me/27748337586" class="btn-gold" style="display:inline-flex">&#128172; Order Your Arrangement</a>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="sec-head rv">
+    <div class="label">Kind Words</div>
+    <h2 class="title">What Our <em>Clients Say</em></h2>
+  </div>
+  <div class="rv-grid">
+    <div class="rv-card rv" style="transition-delay:.06s">
+      <div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rv-text">"Melissa created the most breathtaking bridal bouquet for my wedding. The pink roses with crystal pins were absolutely perfect. Every guest commented on the flowers!"</p>
+      <div class="rv-author"><div class="rv-av">P</div><div><div class="rv-name">Priya N.</div><div class="rv-occ">Wedding Client &middot; Tongaat</div></div></div>
+    </div>
+    <div class="rv-card rv" style="transition-delay:.12s">
+      <div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rv-text">"The wedding garlands were stunning &mdash; fresh, fragrant and exactly the colours I wanted. Lily's understood the traditional significance and delivered beyond expectations."</p>
+      <div class="rv-author"><div class="rv-av">S</div><div><div class="rv-name">Santha R.</div><div class="rv-occ">Hindu Wedding &middot; Phoenix</div></div></div>
+    </div>
+    <div class="rv-card rv" style="transition-delay:.18s">
+      <div class="rv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rv-text">"Ordered a birthday flower basket and it was absolutely gorgeous. Fresh, beautifully presented and arrived on time. Will definitely order again!"</p>
+      <div class="rv-author"><div class="rv-av">K</div><div><div class="rv-name">Kavitha M.</div><div class="rv-occ">Birthday Gift &middot; KZN</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <div class="label rv">Get In Touch</div>
+    <h2 class="title rv" style="transition-delay:.08s;margin-bottom:1rem">Ready to Create Something <em>Beautiful?</em></h2>
+    <p class="rv" style="transition-delay:.16s">Whether it's your dream wedding bouquet, a birthday surprise or a heartfelt gift &mdash; we're here to make it perfect. Chat with Melissa on WhatsApp for a personal consultation.</p>
+    <div class="cta-btns rv" style="transition-delay:.24s">
+      <a href="https://wa.me/27748337586" class="btn-wa">&#128172; WhatsApp Melissa</a>
+      <a href="tel:+27740871494" class="btn-call">&#128222; 074 087 1494</a>
+    </div>
+    <div class="cta-locations rv" style="transition-delay:.32s">
+      <div><div class="cta-loc-name">&#128205; Tongaat</div><div class="cta-loc-det">KwaZulu-Natal, SA</div></div>
+      <div class="cta-divider"></div>
+      <div><div class="cta-loc-name">&#128205; Phoenix</div><div class="cta-loc-det">KwaZulu-Natal, SA</div></div>
+      <div class="cta-divider"></div>
+      <div><div class="cta-loc-name">&#9993; Email</div><div class="cta-loc-det">madurayparshini@gmail.com</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-wrap">
+    <div class="ft-brand">
+      <div class="ft-logo">Lily's <em>Florist</em></div>
+      <div class="ft-tagline">&amp; Gifting &middot; KwaZulu-Natal, South Africa</div>
+      <p>Fresh flowers for every special occasion. Handcrafted with love in Tongaat &amp; Phoenix, serving brides, families and hearts across KwaZulu-Natal.</p>
+      <div class="ft-socials">
+        <a href="https://wa.me/27748337586" class="ft-soc">&#128172;</a>
+        <a href="mailto:madurayparshini@gmail.com" class="ft-soc">&#9993;</a>
+        <a href="tel:+27748337586" class="ft-soc">&#128222;</a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Bridal Bouquets</a></li>
+        <li><a href="#services">Wedding Garlands</a></li>
+        <li><a href="#services">Roses &amp; Bouquets</a></li>
+        <li><a href="#services">Flower Baskets</a></li>
+        <li><a href="#services">Balloon Setups</a></li>
+        <li><a href="#services">Custom Gifts &amp; Frames</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Occasions</h4>
+      <ul>
+        <li><a href="#services">Weddings</a></li>
+        <li><a href="#services">Birthdays</a></li>
+        <li><a href="#services">Anniversaries</a></li>
+        <li><a href="#services">Baby Showers</a></li>
+        <li><a href="#services">Funerals</a></li>
+        <li><a href="#services">Ceremonies &amp; Prayers</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Contact Us</h4>
+      <div class="fc-it"><span class="fc-ci">&#128222;</span><span><a href="tel:+27748337586">074 833 7586</a><br><a href="tel:+27740871494">074 087 1494</a></span></div>
+      <div class="fc-it"><span class="fc-ci">&#9993;</span><span><a href="mailto:madurayparshini@gmail.com">madurayparshini@gmail.com</a></span></div>
+      <div class="fc-it"><span class="fc-ci">&#128205;</span><span>Tongaat &amp; Phoenix, KZN</span></div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <p>&copy; 2025 Lily's Florist &amp; Gifting &middot; Tongaat &amp; Phoenix, KZN</p>
+    <p>Flowers That Speak From The Heart &#127807;</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/27748337586" class="wa-float" target="_blank">&#128172;<div class="wa-tip">Order on WhatsApp</div></a>
+
+<script>
+const IMGS=["images/img_1.jpg", "images/img_2.jpg", "images/img_3.jpg", "images/img_4.jpg", "images/img_5.jpg", "images/img_6.jpg", "images/img_7.jpg", "images/img_8.jpg", "images/img_9.jpg", "images/img_10.jpg", "images/img_11.jpg", "images/img_12.jpg", "images/img_13.jpg", "images/img_14.jpg", "images/img_15.jpg", "images/img_16.jpg", "images/img_17.jpg", "images/img_18.jpg", "images/img_19.jpg", "images/img_20.jpg"];
+const LABELS=["Pink Bridal Garland and Bouquet", "Red and White Rose Garland", "Ganesh Ceremony Backdrop", "Blue and White Wedding Bouquet", "Red and White Heart Garland", "Luxury Pink Rose Wreath", "Red Rose Prayer Garlands", "Pink Bridal Bouquet and Garland Set", "Red and White Rose Garland", "White Rose Boutonni\u00e8res", "Red and White Garland", "White Bridesmaid Bouquets", "Christian Wedding Package", "Red and White Garland Heart", "Blue Floral Arrangements", "Indian Wedding Services Flyer", "Purple and White Cascade Bouquet", "Funeral Memorial Setup", "Pink and White Rose Garland", "Pink and White Garland Closeup"];
+const GIDX=[7, 0, 16, 3, 6, 5, 18, 9, 14, 4, 11, 1];
+const IIDX=[7, 0, 18, 3, 6, 16, 9, 14, 4, 11, 1, 19];
+
+// Set hero background image
+var heroBg = document.getElementById('heroBg');
+heroBg.style.backgroundImage = 'url(' + IMGS[5] + ')';
+
+// Set about image
+document.getElementById('aboutImg').src = IMGS[7];
+
+// Set package image
+var pkgImg = document.getElementById('pkgImg');
+var pkgImgEl = document.createElement('img');
+pkgImgEl.src = IMGS[11];
+pkgImgEl.alt = 'Wedding flowers by Lilys Florist';
+pkgImg.appendChild(pkgImgEl);
+
+// Navbar scroll
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  nav.classList.toggle('solid', window.scrollY > 50);
+});
+
+// Mobile menu
+var mobOpen = false;
+function toggleMob() {
+  mobOpen = !mobOpen;
+  document.getElementById('mob').classList.toggle('on', mobOpen);
+  document.body.style.overflow = mobOpen ? 'hidden' : '';
+}
+function closeMob() {
+  mobOpen = false;
+  document.getElementById('mob').classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+// Reveal on scroll
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('on');
+  });
+}, {threshold: 0.08, rootMargin: '0px 0px -30px 0px'});
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(function(el) { obs.observe(el); });
+
+// Build service cards
+var svcs = [
+  {label:'Bridal Bouquets', tag:'Weddings', desc:'Breathtaking bridal and bridesmaid bouquets in your chosen colours, adorned with crystal pins and babys breath.', idx:7},
+  {label:'Roses and Luxury Bouquets', tag:'Gifting', desc:'Single stems to grand rose arrangements perfect for romance, birthdays, anniversaries and every special moment.', idx:0},
+  {label:'Wedding Garlands', tag:'Indian Weddings', desc:'Traditional varmala and prayer garlands, lovingly woven in fresh roses, babys breath and marigolds.', idx:6},
+  {label:'Flower Baskets and Gifts', tag:'Occasions', desc:'Elegant flower baskets paired with custom gifts, beautifully wrapped and ready to delight any recipient.', idx:9},
+  {label:'Balloon Arrangements', tag:'Celebrations', desc:'Stunning helium balloon setups and custom balloon baskets for birthdays, baby showers and celebrations.', idx:3},
+  {label:'Customized Frames and Gifts', tag:'Personalized', desc:'Personalized frames, wedding souvenirs and custom gifts crafted with love for every milestone.', idx:14},
+];
+var sg = document.getElementById('svcGrid');
+svcs.forEach(function(s, i) {
+  var d = document.createElement('div');
+  d.className = 'svc-card rv';
+  d.style.transitionDelay = (i % 3 * 0.1) + 's';
+  d.innerHTML = '<div class="svc-img-wrap"><img class="svc-img" src="' + IMGS[s.idx] + '" alt="' + s.label + '" loading="lazy"><div class="svc-overlay"></div></div><div class="svc-body"><div class="svc-tag-top">' + s.tag + '</div><h3>' + s.label + '</h3><p>' + s.desc + '</p></div>';
+  d.onclick = function() { openLB(s.idx); };
+  sg.appendChild(d);
+  obs.observe(d);
+});
+
+// Build gallery
+var gg = document.getElementById('galGrid');
+GIDX.forEach(function(idx, i) {
+  var d = document.createElement('div');
+  d.className = 'gi rv';
+  d.style.transitionDelay = (i % 4 * 0.07) + 's';
+  d.innerHTML = '<img src="' + IMGS[idx] + '" alt="' + LABELS[idx] + '" loading="lazy"><div class="gi-ov">&#128247;</div><div class="gi-label">' + LABELS[idx] + '</div>';
+  d.onclick = function() { openLB(idx); };
+  gg.appendChild(d);
+  obs.observe(d);
+});
+
+// Build instagram / recent work
+var ig = document.getElementById('igGrid');
+IIDX.forEach(function(idx) {
+  var d = document.createElement('div');
+  d.className = 'ig-item';
+  d.innerHTML = '<img src="' + IMGS[idx] + '" alt="Lilys Florist" loading="lazy">';
+  d.onclick = function() { openLB(idx); };
+  ig.appendChild(d);
+});
+
+// Lightbox
+function openLB(idx) {
+  document.getElementById('lb-img').src = IMGS[idx];
+  document.getElementById('lb-cap').textContent = LABELS[idx];
+  document.getElementById('lb').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closeLB() {
+  document.getElementById('lb').classList.remove('on');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLB(); });
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (el) { e.preventDefault(); el.scrollIntoView({behavior: 'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>
